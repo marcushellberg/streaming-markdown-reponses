@@ -1,20 +1,16 @@
 import React, {useEffect, useState} from 'react';
 import ReactMarkdown from 'react-markdown';
 import {ReactAdapterElement} from 'Frontend/generated/flow/ReactAdapter';
-import {effect, signal, useSignal} from "@vaadin/hilla-react-signals";
+import {effect, signal} from "@vaadin/hilla-react-signals";
 
 class MarkdownElement extends ReactAdapterElement {
 
     markdown = signal('');
 
-    async connectedCallback() {
-        await super.connectedCallback();
-        effect(() => console.log(this.markdown.value));
-    }
-
     protected override render() {
-        // In a React component, we could use the signal directly,
-        // but it's not possible in a Web Component
+        // In a React component, we could use the signal value directly,
+        // but it doesn't trigger an update in the ReactAdapterElement render method.
+        // Instead, pass the signal value to useState for React.
         const [content, setContent] = useState('');
         useEffect(() => effect(() => {
                 setContent(this.markdown.value);

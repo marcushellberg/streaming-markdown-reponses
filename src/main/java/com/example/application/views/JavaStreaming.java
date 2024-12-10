@@ -40,5 +40,4 @@ public class JavaStreaming extends VerticalLayout {
 
         add(form, outputMarkdown);
     }
-
 }

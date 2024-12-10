@@ -19,18 +19,11 @@ public class Markdown extends ReactAdapterComponent {
         setMarkdown(markdown);
     }
 
-    /**
-     * Set the full markdown content, replacing any existing content.
-     */
     public void setMarkdown(String markdown) {
         this.markdown = markdown;
         getElement().executeJs("this.markdown.value = $0", markdown);
     }
 
-    /**
-     * Append markdown content to the existing content without
-     * sending the entire content again.
-     */
     public void appendMarkdown(String additionalMarkdown) {
         this.markdown += additionalMarkdown;
         getElement().executeJs("this.markdown.value += $0", additionalMarkdown);
@@ -38,5 +31,9 @@ public class Markdown extends ReactAdapterComponent {
 
     public void clear() {
         setMarkdown("");
+    }
+
+    public String getMarkdown() {
+        return markdown;
     }
 }
