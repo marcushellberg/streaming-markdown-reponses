@@ -28,6 +28,7 @@
     "proj4": "2.12.1",
     "react": "18.3.1",
     "react-dom": "18.3.1",
+    "react-markdown": "9.0.1",
     "react-router-dom": "6.28.0"
   },
   "devDependencies": {
@@ -50,6 +51,7 @@
     "@vitejs/plugin-react": "4.3.3",
     "async": "3.2.6",
     "glob": "10.4.5",
+    "prettier": "3.3.3",
     "rollup-plugin-brotli": "3.1.0",
     "rollup-plugin-visualizer": "5.12.0",
     "strip-css-comments": "5.0.0",
@@ -59,8 +61,7 @@
     "vite-plugin-checker": "0.8.0",
     "workbox-build": "7.3.0",
     "workbox-core": "7.3.0",
-    "workbox-precaching": "7.3.0",
-    "prettier": "3.3.3"
+    "workbox-precaching": "7.3.0"
   },
   "vaadin": {
     "dependencies": {
@@ -89,6 +90,7 @@
       "proj4": "2.12.1",
       "react": "18.3.1",
       "react-dom": "18.3.1",
+      "react-markdown": "9.0.1",
       "react-router-dom": "6.28.0"
     },
     "devDependencies": {
@@ -122,7 +124,7 @@
       "workbox-core": "7.3.0",
       "workbox-precaching": "7.3.0"
     },
-    "hash": "4850c97b45eacd2a72d1ecfb52730aa0d11241720046f0945d7fe9dd46d00ed8"
+    "hash": "b315144eb7d21e746e801d876f0daa3325298ae4aa3ac925fbe056caec2bf91a"
   },
   "overrides": {
     "@vaadin/bundles": "$@vaadin/bundles",
@@ -161,6 +163,7 @@
     "@vaadin/react-components-pro": "$@vaadin/react-components-pro",
     "@vaadin/vaadin-themable-mixin": "$@vaadin/vaadin-themable-mixin",
     "@vaadin/vaadin-lumo-styles": "$@vaadin/vaadin-lumo-styles",
-    "@vaadin/vaadin-material-styles": "$@vaadin/vaadin-material-styles"
+    "@vaadin/vaadin-material-styles": "$@vaadin/vaadin-material-styles",
+    "react-markdown": "$react-markdown"
   }
 }
