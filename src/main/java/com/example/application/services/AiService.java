@@ -19,7 +19,7 @@ public class AiService {
         chatClient = builder.build();   
     }
 
-    public Flux<String> getCompletion(String prompt) {
+    public Flux<String> getResponse(String prompt) {
         return chatClient.prompt()
         .user(prompt)
         .stream()

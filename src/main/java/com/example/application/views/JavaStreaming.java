@@ -24,21 +24,14 @@ public class JavaStreaming extends VerticalLayout {
         var promptInput = new TextField();
         var submitButton = new Button("Submit");
         submitButton.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
-        
+
         var outputMarkdown = new Markdown();
 
         submitButton.addClickListener(e -> {
             outputMarkdown.clear();
 
-            ai.getCompletion(promptInput.getValue())
-                // Buffer tokens for 200ms or until we have 10 tokens
-                // The synchronization breaks down if we push stuff too fast
-                .bufferTimeout(10, Duration.ofMillis(200))
-                .subscribe(ui.accessLater(bufferedTokens -> {
-                    // Combine buffered tokens into a single string update
-                    String combined = String.join("", bufferedTokens);
-                    outputMarkdown.appendMarkdown(combined);
-                }, null));
+            ai.getResponse(promptInput.getValue())
+                .subscribe(ui.accessLater(outputMarkdown::appendMarkdown, null));
         });
 
         var form = new HorizontalLayout(promptInput, submitButton);

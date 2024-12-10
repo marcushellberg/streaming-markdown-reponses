@@ -10,13 +10,12 @@ import com.vaadin.flow.component.react.ReactAdapterComponent;
 @Tag("markdown-component")
 public class Markdown extends ReactAdapterComponent {
 
+    private String markdown = "";
+
     public Markdown() {
-        setState("content", "");
-        setState("appendSegment", "");
     }
 
     public Markdown(String markdown) {
-        this();
         setMarkdown(markdown);
     }
 
@@ -24,9 +23,8 @@ public class Markdown extends ReactAdapterComponent {
      * Set the full markdown content, replacing any existing content.
      */
     public void setMarkdown(String markdown) {
-        setState("content", markdown);
-        // Clear appendSegment to avoid unintended merges
-        setState("appendSegment", "");
+        this.markdown = markdown;
+        getElement().executeJs("this.markdown.value = $0", markdown);
     }
 
     /**
@@ -34,7 +32,8 @@ public class Markdown extends ReactAdapterComponent {
      * sending the entire content again.
      */
     public void appendMarkdown(String additionalMarkdown) {
-        setState("appendSegment", additionalMarkdown);
+        this.markdown += additionalMarkdown;
+        getElement().executeJs("this.markdown.value += $0", additionalMarkdown);
     }
 
     public void clear() {
