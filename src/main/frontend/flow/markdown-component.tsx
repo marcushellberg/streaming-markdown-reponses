@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
-import ReactMarkdown from 'react-markdown';
 import {ReactAdapterElement} from 'Frontend/generated/flow/ReactAdapter';
 import {effect, signal} from "@vaadin/hilla-react-signals";
+import Markdown from "react-markdown";
 
 class MarkdownElement extends ReactAdapterElement {
 
@@ -15,7 +15,7 @@ class MarkdownElement extends ReactAdapterElement {
         useEffect(() => effect(() => {
                 setContent(this.markdown.value);
         }), []);
-        return <ReactMarkdown>{content}</ReactMarkdown>;
+        return <Markdown>{content}</Markdown>;
     }
 }
 
