@@ -21,12 +21,12 @@ public class Markdown extends ReactAdapterComponent {
 
     public void setMarkdown(String markdown) {
         this.markdown = markdown;
-        getElement().executeJs("this.markdown.value = $0", markdown);
+        getElement().executeJs("this.markdown = $0", markdown);
     }
 
     public void appendMarkdown(String additionalMarkdown) {
         this.markdown += additionalMarkdown;
-        getElement().executeJs("this.markdown.value += $0", additionalMarkdown);
+        getElement().executeJs("this.markdown += $0", additionalMarkdown);
     }
 
     public void clear() {
